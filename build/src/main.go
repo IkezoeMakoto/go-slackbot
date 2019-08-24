@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"os"
 
@@ -27,6 +28,8 @@ func main() {
 	loadEnv()
 	token := getEnv("SLACK_TOKEN")
 	api := slack.New(token)
+
+	fmt.Print(token)
 	rtm := api.NewRTM()
 	go rtm.ManageConnection()
 
